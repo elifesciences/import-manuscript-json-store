@@ -136,23 +136,6 @@
         "s3://biorxiv-src-daily/Current_Content/November_2022/06_Nov_22_Batch_1427/d8e895d0-6e48-1014-9aa1-d94711361182.meca"
       ],
       "authorResponseDate": "2022-11-08T00:00:00.000Z"
-    },
-    {
-      "id": "4754",
-      "doi": "10.1101/2022.06.22.497259",
-      "publishedDate": "2022-12-03T00:00:00.000Z",
-      "versionIdentifier": "3",
-      "content": ["https://www.nature.com/articles/s41467-022-35034-6"],
-      "url": "https://www.nature.com/articles/s41467-022-35034-6",
-      "license": "http://creativecommons.org/licenses/by/4.0/",
-      "corrections": [
-        {
-          "content": [
-            "https://www.nature.com/articles/s41467-022-35034-6"
-          ],
-          "correctedDate": "2023-01-31T00:00:00.000Z"
-        }
-      ]
     }
   ]
 }
