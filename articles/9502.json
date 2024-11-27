@@ -39,11 +39,9 @@
           ]
         }
       },
-      "reviewedDate": "2024-03-14T00:00:00.000Z",
       "content": [
         "s3://biorxiv-src-daily/Current_Content/February_2024/13_Feb_24_Batch_1886/442ba25c-72f2-1014-807c-bc0d9d8e521e.meca"
-      ],
-      "authorResponseDate": "2024-02-11T00:00:00.000Z"
+      ]
     }
   ]
 }

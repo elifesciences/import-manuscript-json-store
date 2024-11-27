@@ -39,11 +39,9 @@
           ]
         }
       },
-      "reviewedDate": "2022-10-06T00:00:00.000Z",
       "content": [
         "s3://biorxiv-src-daily/Current_Content/October_2022/04_Oct_22_Batch_1394/59478377-6e5b-1014-b793-9325404ad2d4.meca"
-      ],
-      "authorResponseDate": "2022-07-20T00:00:00.000Z"
+      ]
     }
   ]
 }
