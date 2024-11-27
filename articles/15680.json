@@ -1,0 +1,49 @@
+{
+  "id": "15680",
+  "manuscript": {
+    "doi": "10.1101/2022.07.11.499616",
+    "publishedDate": "2024-05-09T00:00:00.000Z"
+  },
+  "versions": [
+    {
+      "id": "15680",
+      "doi": "10.1101/2022.07.11.499616",
+      "publishedDate": "2024-05-09T00:00:00.000Z",
+      "versionIdentifier": "1",
+      "preprint": {
+        "id": "10.1101/2022.07.11.499616",
+        "doi": "10.1101/2022.07.11.499616v2",
+        "publishedDate": "2023-02-21T00:00:00.000Z",
+        "versionIdentifier": "2",
+        "content": [
+          "s3://biorxiv-src-daily/Current_Content/July_2022/28_Jul_22_Batch_1326/068b324a-6ce1-1014-b80d-c6ed724ac5b6.meca"
+        ],
+        "url": "https://www.biorxiv.org/content/10.1101/2022.07.11.499616v2"
+      },
+      "license": "http://creativecommons.org/licenses/by/4.0/",
+      "peerReview": {
+        "reviews": [],
+        "evaluationSummary": {
+          "reviewType": "evaluation-summary",
+          "date": "2024-05-09T00:00:00.000Z",
+          "participants": [
+            {
+              "name": "anonymous",
+              "role": "peer-reviewer"
+            }
+          ],
+          "contentUrls": [
+            "https://hypothes.is/a/RHJmg4GEe-VDtfeNQwAbg",
+            "https://sciety.org/articles/activity/10.1101/2022.06.22.497259#hypothesis:RHJmg4GEe-VDtfeNQwAbg",
+            "https://sciety.org/evaluations/hypothesis:RHJmg4GEe-VDtfeNQwAbg/content"
+          ]
+        }
+      },
+      "reviewedDate": "2022-09-12T00:00:00.000Z",
+      "content": [
+        "s3://biorxiv-src-daily/Current_Content/July_2022/28_Jul_22_Batch_1326/068b324a-6ce1-1014-b80d-c6ed724ac5b6.meca"
+      ],
+      "authorResponseDate": "2023-08-15T00:00:00.000Z"
+    }
+  ]
+}
