@@ -2,7 +2,7 @@
   "id": "15675",
   "manuscript": {
     "doi": "10.1101/2021.03.21.436299",
-    "publishedDate": "2024-05-09T00:00:00.000Z"
+    "publishedDate": "2021-09-27T00:00:00.000Z"
   },
   "versions": [
     {
@@ -13,7 +13,7 @@
       "preprint": {
         "id": "10.1101/2021.03.21.436299",
         "doi": "10.1101/2021.03.21.436299v5",
-        "publishedDate": "2023-02-21T00:00:00.000Z",
+        "publishedDate": "2021-06-27T00:00:00.000Z",
         "versionIdentifier": "5",
         "content": [
           "s3://biorxiv-src-daily/Current_Content/June_2021/27_Jun_21_Batch_#931/30a8a0fe-740f-1014-a072-87676100c7bd.meca"
