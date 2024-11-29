@@ -16,7 +16,7 @@
         "publishedDate": "2021-06-24T00:00:00.000Z",
         "versionIdentifier": "1",
         "content": [
-          "s3://biorxiv-src-daily/Current_Content/June_2021/24_Jun_21_Batch_#928/1abebac6-7382-1014-9954-92740740d9ae.meca"
+          "s3://biorxiv-src-daily/Current_Content/June_2021/24_Jun_21_Batch_%23928/1abebac6-7382-1014-9954-92740740d9ae.meca"
         ],
         "url": "https://www.biorxiv.org/content/10.1101/2021.06.18.449063v1"
       },
@@ -38,7 +38,7 @@
         }
       },
       "content": [
-        "s3://biorxiv-src-daily/Current_Content/June_2021/24_Jun_21_Batch_#928/1abebac6-7382-1014-9954-92740740d9ae.meca"
+        "s3://biorxiv-src-daily/Current_Content/June_2021/24_Jun_21_Batch_%23928/1abebac6-7382-1014-9954-92740740d9ae.meca"
       ]
     }
   ]
