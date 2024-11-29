@@ -21,6 +21,8 @@
         "url": "https://www.biorxiv.org/content/10.1101/2022.08.08.502889v5"
       },
       "license": "http://creativecommons.org/licenses/by/4.0/",
+      "peerReview": {
+        "reviews": [],
         "evaluationSummary": {
           "reviewType": "evaluation-summary",
           "date": "2023-06-16T00:00:00.000Z",
@@ -34,6 +36,7 @@
             "https://sciety.org/evaluations/hypothesis:nWuFkAxdEe6CbY96sXkz1w/content"
           ]
         },
+      },
       "content": [
        "s3://biorxiv-src-daily/Current_Content/June_2023/03_Jun_23_Batch_1631/bd15b9c2-7140-1014-954f-ae226efdd132.meca"
       ]
