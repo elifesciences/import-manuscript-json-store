@@ -57,11 +57,6 @@ if (!evaluationSummaryDate) {
   process.exit(1);
 }
 
-if (!evaluationSummaryParticipants) {
-  console.error('Error: Please provide an evaluation summary participants as an argument.');
-  process.exit(1);
-}
-
 const prepareManuscript = async (
   id: string,
   versionedDoi: string,
@@ -132,7 +127,7 @@ prepareManuscript(
   new Date(date),
   evaluationSummary,
   new Date(evaluationSummaryDate),
-  evaluationSummaryParticipants.split(','),
+  (evaluationSummaryParticipants ?? 'anonymous').split(','),
   peerReview,
   new Date(peerReviewDate),
   authorResponse,
