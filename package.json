@@ -1,0 +1,20 @@
+{
+  "name": "import-manuscript-json-store",
+  "version": "1.0.0",
+  "repository": "git@github.com:elifesciences/import-manuscript-json-store.git",
+  "author": "Nathan Lisgo <n.lisgo@elifesciences.org>",
+  "license": "MIT",
+  "devDependencies": {
+    "@tsconfig/node20": "^20.1.4",
+    "@types/axios": "^0.14.4",
+    "@types/node": "^22.10.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
+  },
+  "scripts": {
+    "manuscript-data": "ts-node ./src/manuscriptData.ts"
+  },
+  "dependencies": {
+    "axios": "^1.7.8"
+  }
+}
