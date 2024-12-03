@@ -4,15 +4,11 @@ import axios from 'axios';
 
 const [
   id,
-  versionedDoi,
   date,
   evaluationSummary,
-  evaluationSummaryDate,
   evaluationSummaryParticipants,
   peerReview,
-  peerReviewDate,
   authorResponse,
-  authorResponseDate,
 ] = process.argv.slice(2);
 
 const bioxriv = async (versionedDoi: string) => {
@@ -25,8 +21,19 @@ const bioxriv = async (versionedDoi: string) => {
     .then((response) => response.data.results ?? [])
     .then((results) => results.map(({tdm_path: content, filedate: date}) => ({
       content,
-      date,
+      date: new Date(date),
     })));
+};
+
+const hypothesis = async (id: string) => {
+  return axios.get<{
+    created: string,
+    uri: string,
+  }>(`https://api.hypothes.is/api/annotations/${id}`)
+    .then((response) => ({
+      preprint: response.data.uri,
+      date: new Date(response.data.created),
+    }));
 };
 
 const formatDate = (date: Date) => date.toISOString();
@@ -34,11 +41,6 @@ const evaluationUrl = (id: string) => `https://sciety.org/evaluations/hypothesis
 
 if (!id) {
   console.error('Error: Please provide an ID as an argument.');
-  process.exit(1);
-}
-
-if (!versionedDoi) {
-  console.error('Error: Please provide a versioned doi as an argument.');
   process.exit(1);
 }
 
@@ -52,12 +54,7 @@ if (!evaluationSummary) {
   process.exit(1);
 }
 
-if (!evaluationSummaryDate) {
-  console.error('Error: Please provide an evaluation summary date as an argument.');
-  process.exit(1);
-}
-
-const prepareManuscript = async (
+const prepareManuscriptStructure = async (
   id: string,
   versionedDoi: string,
   date: Date,
@@ -85,7 +82,7 @@ const prepareManuscript = async (
     ],
   });
 
-  const manuscript = {
+  return {
     id,
     manuscript: {
       doi,
@@ -117,19 +114,38 @@ const prepareManuscript = async (
       },
     ],
   };
+};
 
-  console.log(JSON.stringify(manuscript, undefined, 2));
+const prepareManuscript = async (
+  id: string,
+  date: Date,
+  evaluationSummary: string,
+  evaluationSummaryParticipants: string[],
+  peerReview?: string,
+  authorResponse?: string
+) => {
+  const { preprint, date: evaluationSummaryDate } = await hypothesis(evaluationSummary);
+  const { date: peerReviewDate } = peerReview ? await hypothesis(peerReview) : { date: null };
+  const { date: authorResponseDate } = authorResponse ? await hypothesis(authorResponse) : { date: null };
+  console.log(JSON.stringify(await prepareManuscriptStructure(
+    id,
+    preprint.split('/').slice(-2).join('/'),
+    date,
+    evaluationSummary,
+    evaluationSummaryDate,
+    evaluationSummaryParticipants,
+    peerReviewDate ? peerReview : undefined,
+    peerReviewDate ?? undefined,
+    authorResponseDate ? authorResponse : undefined,
+    authorResponseDate ?? undefined
+  ), undefined, 2));
 };
 
 prepareManuscript(
   id,
-  versionedDoi,
   new Date(date),
   evaluationSummary,
-  new Date(evaluationSummaryDate),
   (evaluationSummaryParticipants ?? 'anonymous').split(','),
   peerReview,
-  new Date(peerReviewDate),
-  authorResponse,
-  new Date(authorResponseDate)
+  authorResponse
 );
