@@ -13,7 +13,7 @@
       "preprint": {
         "id": "10.1101/2021.06.18.449063",
         "doi": "10.1101/2021.06.18.449063",
-        "publishedDate": "2021-06-24T00:00:00.000Z",
+        "publishedDate": "2022-04-28T00:00:00.000Z",
         "versionIdentifier": "1",
         "content": [
           "s3://biorxiv-src-daily/Current_Content/June_2021/24_Jun_21_Batch_#928/1abebac6-7382-1014-9954-92740740d9ae.meca"
@@ -22,10 +22,19 @@
       },
       "license": "http://creativecommons.org/licenses/by/4.0/",
       "peerReview": {
-        "reviews": [],
+        "reviews": [
+          {
+            "reviewType": "review-article",
+            "date": "2021-09-09T17:33:15.170Z",
+            "participants": [],
+            "contentUrls": [
+              "https://sciety.org/evaluations/hypothesis:A4Xd2BGUEeyIxaNhlAiqaQ/content"
+            ]
+          }
+        ],
         "evaluationSummary": {
           "reviewType": "evaluation-summary",
-          "date": "2022-04-28T00:00:00.000Z",
+          "date": "2022-04-28T18:01:37.340Z",
           "participants": [
             {
               "name": "anonymous",
@@ -37,6 +46,7 @@
           ]
         }
       },
+      "reviewedDate": "2021-09-09T17:33:15.170Z",
       "content": [
         "s3://biorxiv-src-daily/Current_Content/June_2021/24_Jun_21_Batch_#928/1abebac6-7382-1014-9954-92740740d9ae.meca"
       ]

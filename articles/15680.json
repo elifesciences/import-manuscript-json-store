@@ -13,7 +13,7 @@
       "preprint": {
         "id": "10.1101/2022.07.11.499616",
         "doi": "10.1101/2022.07.11.499616",
-        "publishedDate": "2023-02-21T00:00:00.000Z",
+        "publishedDate": "2024-05-09T00:00:00.000Z",
         "versionIdentifier": "2",
         "content": [
           "s3://biorxiv-src-daily/Current_Content/July_2022/28_Jul_22_Batch_1326/068b324a-6ce1-1014-b80d-c6ed724ac5b6.meca"
@@ -22,10 +22,19 @@
       },
       "license": "http://creativecommons.org/licenses/by/4.0/",
       "peerReview": {
-        "reviews": [],
+        "reviews": [
+          {
+            "reviewType": "review-article",
+            "date": "2024-01-15T17:54:21.669Z",
+            "participants": [],
+            "contentUrls": [
+              "https://sciety.org/evaluations/hypothesis:HO1YcLPPEe6wawtJX9hUYA/content"
+            ]
+          }
+        ],
         "evaluationSummary": {
           "reviewType": "evaluation-summary",
-          "date": "2024-05-09T00:00:00.000Z",
+          "date": "2024-05-09T13:21:04.831Z",
           "participants": [
             {
               "name": "anonymous",
@@ -35,11 +44,21 @@
           "contentUrls": [
             "https://sciety.org/evaluations/hypothesis:_RHJmg4GEe-VDtfeNQwAbg/content"
           ]
+        },
+        "authorResponse": {
+          "reviewType": "author-response",
+          "date": "2024-01-15T18:11:09.346Z",
+          "participants": [],
+          "contentUrls": [
+            "https://sciety.org/evaluations/hypothesis:dYD5mrPREe6e7jdkgQjXPw/content"
+          ]
         }
       },
+      "reviewedDate": "2024-01-15T17:54:21.669Z",
       "content": [
         "s3://biorxiv-src-daily/Current_Content/July_2022/28_Jul_22_Batch_1326/068b324a-6ce1-1014-b80d-c6ed724ac5b6.meca"
-      ]
+      ],
+      "authorResponseDate": "2024-01-15T18:11:09.346Z"
     }
   ]
 }
