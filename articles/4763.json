@@ -13,19 +13,28 @@
       "preprint": {
         "id": "10.1101/2022.04.12.488046",
         "doi": "10.1101/2022.04.12.488046",
-        "publishedDate": "2022-10-03T00:00:00.000Z",
-        "versionIdentifier": "2",
+        "publishedDate": "2022-10-06T00:00:00.000Z",
+        "versionIdentifier": "1",
         "content": [
-          "s3://biorxiv-src-daily/Current_Content/October_2022/04_Oct_22_Batch_1394/59478377-6e5b-1014-b793-9325404ad2d4.meca"
+          "s3://biorxiv-src-daily/Current_Content/April_2022/13_Apr_22_Batch_1220/552147f5-738e-1014-8cf0-d52bc8cc8bb4.meca"
         ],
-        "url": "https://www.biorxiv.org/content/10.1101/2022.04.12.488046v2"
+        "url": "https://www.biorxiv.org/content/10.1101/2022.04.12.488046v1"
       },
       "license": "http://creativecommons.org/licenses/by/4.0/",
       "peerReview": {
-        "reviews": [],
+        "reviews": [
+          {
+            "reviewType": "review-article",
+            "date": "2022-10-06T07:55:45.086Z",
+            "participants": [],
+            "contentUrls": [
+              "https://sciety.org/evaluations/hypothesis:SEuzdEVMEe25smtLmvWMJQ/content"
+            ]
+          }
+        ],
         "evaluationSummary": {
           "reviewType": "evaluation-summary",
-          "date": "2022-10-03T00:00:00.000Z",
+          "date": "2022-10-06T16:11:18.546Z",
           "participants": [
             {
               "name": "anonymous",
@@ -35,11 +44,21 @@
           "contentUrls": [
             "https://sciety.org/evaluations/hypothesis:gvO9EEWREe2h3TN9wLNw_Q/content"
           ]
+        },
+        "authorResponse": {
+          "reviewType": "author-response",
+          "date": "2022-10-06T16:03:46.822Z",
+          "participants": [],
+          "contentUrls": [
+            "https://sciety.org/evaluations/hypothesis:dbt-DkWQEe2exOsd4fS8hg/content"
+          ]
         }
       },
+      "reviewedDate": "2022-10-06T07:55:45.086Z",
       "content": [
-        "s3://biorxiv-src-daily/Current_Content/October_2022/04_Oct_22_Batch_1394/59478377-6e5b-1014-b793-9325404ad2d4.meca"
-      ]
+        "s3://biorxiv-src-daily/Current_Content/April_2022/13_Apr_22_Batch_1220/552147f5-738e-1014-8cf0-d52bc8cc8bb4.meca"
+      ],
+      "authorResponseDate": "2022-10-06T16:03:46.822Z"
     }
   ]
 }

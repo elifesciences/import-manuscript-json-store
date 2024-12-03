@@ -13,7 +13,7 @@
       "preprint": {
         "id": "10.1101/2022.06.22.497259",
         "doi": "10.1101/2022.06.22.497259",
-        "publishedDate": "2022-11-05T00:00:00.000Z",
+        "publishedDate": "2022-12-06T00:00:00.000Z",
         "versionIdentifier": "2",
         "content": [
           "s3://biorxiv-src-daily/Current_Content/November_2022/06_Nov_22_Batch_1427/d8e895d0-6e48-1014-9aa1-d94711361182.meca"
@@ -25,13 +25,8 @@
         "reviews": [
           {
             "reviewType": "review-article",
-            "date": "2022-08-30T00:00:00.000Z",
-            "participants": [
-              {
-                "name": "anonymous",
-                "role": "curator"
-              }
-            ],
+            "date": "2022-08-30T19:01:15.116Z",
+            "participants": [],
             "contentUrls": [
               "https://sciety.org/evaluations/hypothesis:HytBbCiWEe25CztJOfZHXA/content"
             ]
@@ -39,7 +34,7 @@
         ],
         "evaluationSummary": {
           "reviewType": "evaluation-summary",
-          "date": "2022-12-06T00:00:00.000Z",
+          "date": "2022-12-06T21:02:31.576Z",
           "participants": [
             {
               "name": "anonymous",
@@ -52,18 +47,18 @@
         },
         "authorResponse": {
           "reviewType": "author-response",
-          "date": "2022-11-08T00:00:00.000Z",
+          "date": "2022-11-08T20:27:09.198Z",
           "participants": [],
           "contentUrls": [
             "https://sciety.org/evaluations/hypothesis:uD_sfl-jEe2Dnysguy9oKg/content"
           ]
         }
       },
-      "reviewedDate": "2022-08-30T00:00:00.000Z",
+      "reviewedDate": "2022-08-30T19:01:15.116Z",
       "content": [
         "s3://biorxiv-src-daily/Current_Content/November_2022/06_Nov_22_Batch_1427/d8e895d0-6e48-1014-9aa1-d94711361182.meca"
       ],
-      "authorResponseDate": "2022-11-08T00:00:00.000Z"
+      "authorResponseDate": "2022-11-08T20:27:09.198Z"
     }
   ]
 }

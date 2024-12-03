@@ -13,19 +13,28 @@
       "preprint": {
         "id": "10.1101/2022.08.08.502889",
         "doi": "10.1101/2022.08.08.502889",
-        "publishedDate": "2023-06-02T00:00:00.000Z",
-        "versionIdentifier": "2",
+        "publishedDate": "2023-06-16T00:00:00.000Z",
+        "versionIdentifier": "5",
         "content": [
-         "s3://biorxiv-src-daily/Current_Content/June_2023/03_Jun_23_Batch_1631/bd15b9c2-7140-1014-954f-ae226efdd132.meca"
+          "s3://biorxiv-src-daily/Current_Content/June_2023/03_Jun_23_Batch_1631/bd15b9c2-7140-1014-954f-ae226efdd132.meca"
         ],
         "url": "https://www.biorxiv.org/content/10.1101/2022.08.08.502889v5"
       },
       "license": "http://creativecommons.org/licenses/by/4.0/",
       "peerReview": {
-        "reviews": [],
+        "reviews": [
+          {
+            "reviewType": "review-article",
+            "date": "2023-06-13T17:12:38.411Z",
+            "participants": [],
+            "contentUrls": [
+              "https://sciety.org/evaluations/hypothesis:f4TU6AoNEe6zmT-c0Pl-0Q/content"
+            ]
+          }
+        ],
         "evaluationSummary": {
           "reviewType": "evaluation-summary",
-          "date": "2023-06-16T00:00:00.000Z",
+          "date": "2023-06-16T15:51:10.532Z",
           "participants": [
             {
               "name": "anonymous",
@@ -35,11 +44,21 @@
           "contentUrls": [
             "https://sciety.org/evaluations/hypothesis:nWuFkAxdEe6CbY96sXkz1w/content"
           ]
+        },
+        "authorResponse": {
+          "reviewType": "author-response",
+          "date": "2023-06-16T09:26:06.111Z",
+          "participants": [],
+          "contentUrls": [
+            "https://sciety.org/evaluations/hypothesis:0hn2mgwnEe6rlxsISSalIA/content"
+          ]
         }
       },
+      "reviewedDate": "2023-06-13T17:12:38.411Z",
       "content": [
-       "s3://biorxiv-src-daily/Current_Content/June_2023/03_Jun_23_Batch_1631/bd15b9c2-7140-1014-954f-ae226efdd132.meca"
-      ]
+        "s3://biorxiv-src-daily/Current_Content/June_2023/03_Jun_23_Batch_1631/bd15b9c2-7140-1014-954f-ae226efdd132.meca"
+      ],
+      "authorResponseDate": "2023-06-16T09:26:06.111Z"
     }
   ]
 }
