@@ -6,9 +6,9 @@ const [
   id,
   date,
   evaluationSummary,
-  evaluationSummaryParticipants,
   peerReview,
   authorResponse,
+  evaluationSummaryParticipants,
 ] = process.argv.slice(2);
 
 const bioxriv = async (versionedDoi: string) => {
