@@ -17,7 +17,7 @@ if [[ ! -d "$ARTICLES_DIR" ]]; then
 fi
 
 # Process the CSV file
-while IFS=',' read -r ID PublishedDate EvalSummaryID PeerReviewID AuthorResponseID; do
+while IFS=',' read -r ID PublishedDate EvalSummaryID PeerReviewID AuthorResponseID Url; do
     # Skip the header row
     if [[ "$ID" != "ID" ]]; then
         (
