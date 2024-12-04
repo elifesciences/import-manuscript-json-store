@@ -69,7 +69,7 @@ const prepareManuscriptStructure = async (
   const [doi, versionIdentifier] = versionedDoi.split('v');
   const results = await bioxriv(versionedDoi);
   const content = results.map((result) => result.content);
-  
+
   const evaluation = (reviewType: string, date: Date, participants: string[], contentUrl: string) => ({
     reviewType,
     date: date.toISOString(),
@@ -97,7 +97,7 @@ const prepareManuscriptStructure = async (
         preprint: {
           id: doi,
           doi,
-          ...(results.length > 0 ? { publishedDate: formatDate(date) } : {}),
+          ...(results.length > 0 ? { publishedDate: formatDate(results[0].date) } : {}),
           versionIdentifier,
           content,
           url: `https://www.biorxiv.org/content/${versionedDoi}`,
