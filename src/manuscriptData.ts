@@ -203,7 +203,7 @@ const prepareManuscript = async (
   const { preprint: evaluationSummaryPreprint, date: evaluationSummaryDate } = await hypothesis(evaluationSummary);
   const { preprint: peerReviewPreprint, date: peerReviewDate } = peerReview ? await hypothesis(peerReview) : hypothesisDefault;
   const { preprint: authorResponsePreprint, date: authorResponseDate } = authorResponse ? await hypothesis(authorResponse) : hypothesisDefault;
-  console.log(JSON.stringify(await prepareManuscriptStructure(
+  return prepareManuscriptStructure(
     id,
     [
       evaluationSummaryPreprint,
@@ -219,7 +219,7 @@ const prepareManuscript = async (
     peerReviewDate ?? undefined,
     authorResponseDate ? authorResponse : undefined,
     authorResponseDate ?? undefined
-  ), undefined, 2));
+  );
 };
 
 prepareManuscript(
@@ -230,4 +230,6 @@ prepareManuscript(
   (evaluationSummaryParticipants ?? 'anonymous').split(','),
   peerReview,
   authorResponse
-);
+)
+  .then((manuscript) => JSON.stringify(manuscript, undefined, 2))
+  .then((manuscript) => console.log(manuscript));
