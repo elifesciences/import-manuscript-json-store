@@ -4,6 +4,7 @@ import axios from 'axios';
 
 const [
   id,
+  preprint,
   date,
   evaluationSummary,
   peerReview,
@@ -36,9 +37,10 @@ const hypothesis = async (id: string) => {
     }));
 };
 
-const gatherPreprints = (preprints: (string | null)[], dates: Date[]) => {
+const gatherPreprints = (preprints: string[], dates: Date[], specificPreprints: string[]) => {
   // Use a Set to remove duplicates
-  const uniquePreprints = Array.from(new Set(preprints.filter((p) => p !== null)));
+  const uniquePreprints = Array.from(new Set(preprints));
+  const uniqueSpecificPreprints = Array.from(new Set(specificPreprints));
 
   // Sort the preprints based on the numeric part
   uniquePreprints.sort((a, b) => {
@@ -54,13 +56,22 @@ const gatherPreprints = (preprints: (string | null)[], dates: Date[]) => {
 
     return versionA - versionB;
   });
+  
+  uniqueSpecificPreprints.sort((a, b) => parseInt(a) - parseInt(b));
+  
+  if (uniquePreprints.length < uniqueSpecificPreprints.length) {
+    const [doi] = uniquePreprints[uniquePreprints.length - 1].split('v');
+    for (let i = uniquePreprints.length; i < uniqueSpecificPreprints.length; i++) {
+      uniquePreprints.push(`${doi}v${uniqueSpecificPreprints[i]}`);
+    }
+  }
 
   return uniquePreprints.map((versionedDoi, i) => {
     const [doi, versionIdentifier] = versionedDoi.split('v');
     return {
-      versionedDoi,
+      versionedDoi: uniqueSpecificPreprints.length > i ? `${doi}v${uniqueSpecificPreprints[i]}` : versionedDoi,
       doi,
-      versionIdentifier,
+      versionIdentifier: uniqueSpecificPreprints.length > i ? uniqueSpecificPreprints[i] : versionIdentifier,
       date: (dates.length > i) ? dates[i] : dates[dates.length - 1],
     };
   });
@@ -87,6 +98,7 @@ if (!evaluationSummary) {
 const prepareManuscriptStructure = async (
   id: string,
   versionedDois: string[],
+  preprints: string[],
   dates: Date[],
   evaluationSummary: string,
   evaluationSummaryDate: Date,
@@ -96,8 +108,8 @@ const prepareManuscriptStructure = async (
   authorResponse?: string,
   authorResponseDate?: Date
 )=> {
-  const preprints = gatherPreprints(versionedDois, dates);
-  const [preprintNotRevised] = preprints;
+  const gatheredPreprints = gatherPreprints(versionedDois, dates, preprints);
+  const [preprintNotRevised] = gatheredPreprints;
 
   const evaluation = (reviewType: string, date: Date, participants: string[], contentUrl: string) => ({
     reviewType,
@@ -159,7 +171,7 @@ const prepareManuscriptStructure = async (
       doi: preprintNotRevised.doi,
       publishedDate: formatDate(preprintNotRevised.date),
     },
-    versions: await Promise.all(preprints.map(async (preprint, i) => version(
+    versions: await Promise.all(gatheredPreprints.map(async (preprint, i) => version(
       id,
       preprint.versionedDoi,
       preprint.date,
@@ -177,6 +189,7 @@ const prepareManuscriptStructure = async (
 
 const prepareManuscript = async (
   id: string,
+  preprints: string[],
   dates: Date[],
   evaluationSummary: string,
   evaluationSummaryParticipants: string[],
@@ -197,6 +210,7 @@ const prepareManuscript = async (
       peerReviewPreprint,
       authorResponsePreprint,
     ].filter((preprint) => preprint !== null),
+    preprints,
     dates,
     evaluationSummary,
     evaluationSummaryDate,
@@ -210,7 +224,8 @@ const prepareManuscript = async (
 
 prepareManuscript(
   id,
-  date.split(',').map((d) => new Date(d)),
+  preprint.split('|').filter((p) => p.length > 0),
+  date.split('|').filter((d) => d.length > 0).map((d) => new Date(d)),
   evaluationSummary,
   (evaluationSummaryParticipants ?? 'anonymous').split(','),
   peerReview,

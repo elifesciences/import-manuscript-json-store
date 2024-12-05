@@ -17,12 +17,12 @@ if [[ ! -d "$ARTICLES_DIR" ]]; then
 fi
 
 # Process the CSV file
-while IFS=',' read -r ID PublishedDate EvalSummaryID PeerReviewID AuthorResponseID Url; do
+while IFS=',' read -r ID Preprints PublishedDate EvalSummaryID PeerReviewID AuthorResponseID Url; do
     # Skip the header row
     if [[ "$ID" != "ID" ]]; then
         (
             cd "$ROOT_DIR" || exit # Change to the root directory
-            yarn --silent manuscript-data "$ID" "$PublishedDate" "$EvalSummaryID" "$PeerReviewID" "$AuthorResponseID" > "$ARTICLES_DIR/$ID.json"
+            yarn --silent manuscript-data "$ID" "$Preprints" "$PublishedDate" "$EvalSummaryID" "$PeerReviewID" "$AuthorResponseID" > "$ARTICLES_DIR/$ID.json"
         )
     fi
 done < "$CSV_FILE"
