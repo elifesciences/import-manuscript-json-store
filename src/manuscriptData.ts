@@ -159,21 +159,19 @@ const prepareManuscriptStructure = async (
       doi: preprintNotRevised.doi,
       publishedDate: formatDate(preprintNotRevised.date),
     },
-    versions: [
-      await version(
-        id,
-        preprintNotRevised.versionedDoi,
-        preprintNotRevised.date,
-        '1',
-        evaluationSummary,
-        evaluationSummaryDate,
-        evaluationSummaryParticipants,
-        peerReview,
-        peerReviewDate,
-        authorResponse,
-        authorResponseDate
-      ),
-    ],
+    versions: await Promise.all(preprints.map(async (preprint, i) => version(
+      id,
+      preprint.versionedDoi,
+      preprint.date,
+      (i + 1).toString(),
+      evaluationSummary,
+      evaluationSummaryDate,
+      evaluationSummaryParticipants,
+      peerReview,
+      peerReviewDate,
+      authorResponse,
+      authorResponseDate,
+    ))),
   };
 };
 
