@@ -31,7 +31,7 @@ const hypothesis = async (id: string) => {
     uri: string,
   }>(`https://api.hypothes.is/api/annotations/${id}`)
     .then((response) => ({
-      preprint: response.data.uri,
+      preprint: response.data.uri.split('/').slice(-2).join('/'),
       date: new Date(response.data.created),
     }));
 };
@@ -56,7 +56,7 @@ if (!evaluationSummary) {
 
 const prepareManuscriptStructure = async (
   id: string,
-  versionedDoi: string,
+  versionedDois: string[],
   date: Date,
   evaluationSummary: string,
   evaluationSummaryDate: Date,
@@ -66,13 +66,12 @@ const prepareManuscriptStructure = async (
   authorResponse?: string,
   authorResponseDate?: Date
 )=> {
-  const [doi, versionIdentifier] = versionedDoi.split('v');
-  const results = await bioxriv(versionedDoi);
-  const content = results.map((result) => result.content);
+  const [versionedDoi] = versionedDois; 
+  const [doi] = versionedDoi.split('v');
 
   const evaluation = (reviewType: string, date: Date, participants: string[], contentUrl: string) => ({
     reviewType,
-    date: date.toISOString(),
+    date: formatDate(date),
     participants: participants.map((name) => ({
       name,
       role: 'curator',
@@ -81,6 +80,48 @@ const prepareManuscriptStructure = async (
       contentUrl,
     ],
   });
+  
+  const version = async (
+    id: string,
+    versionedDoi: string,
+    date: Date,
+    versionIdentifier: string,
+    evaluationSummary: string,
+    evaluationSummaryDate: Date,
+    evaluationSummaryParticipants: string[],
+    peerReview?: string,
+    peerReviewDate?: Date,
+    authorResponse?: string,
+    authorResponseDate?: Date
+  ) => {
+    const [doi, preprintVersionIdentifier] = versionedDoi.split('v');
+    const results = await bioxriv(versionedDoi);
+    const content = results.map((result) => result.content);
+    
+    return {
+      id,
+      doi,
+      publishedDate: formatDate(date),
+      versionIdentifier,
+      preprint: {
+        id: doi,
+        doi,
+        ...(results.length > 0 ? { publishedDate: formatDate(results[0].date) } : {}),
+        versionIdentifier: preprintVersionIdentifier,
+        content,
+        url: `https://www.biorxiv.org/content/${versionedDoi}`,
+      },
+      license: 'http://creativecommons.org/licenses/by/4.0/',
+      peerReview: {
+        reviews: (peerReview && peerReviewDate) ? [evaluation('review-article', peerReviewDate, [], evaluationUrl(peerReview))] : [],
+        evaluationSummary: evaluation('evaluation-summary', evaluationSummaryDate, evaluationSummaryParticipants, evaluationUrl(evaluationSummary)),
+        ...(authorResponse && authorResponseDate ? { authorResponse: evaluation('author-response', authorResponseDate, [], evaluationUrl(authorResponse)) } : {}),
+      },
+      ...(peerReview && peerReviewDate ? { reviewedDate: peerReviewDate.toISOString() } : {}),
+      content,
+      ...(authorResponse && authorResponseDate ? { authorResponseDate: authorResponseDate.toISOString() } : {}),
+    };
+  };
 
   return {
     id,
@@ -89,48 +130,47 @@ const prepareManuscriptStructure = async (
       publishedDate: formatDate(date),
     },
     versions: [
-      {
+      await version(
         id,
-        doi,
-        publishedDate: formatDate(date),
-        versionIdentifier: '1',
-        preprint: {
-          id: doi,
-          doi,
-          ...(results.length > 0 ? { publishedDate: formatDate(results[0].date) } : {}),
-          versionIdentifier,
-          content,
-          url: `https://www.biorxiv.org/content/${versionedDoi}`,
-        },
-        license: 'http://creativecommons.org/licenses/by/4.0/',
-        peerReview: {
-          reviews: (peerReview && peerReviewDate) ? [evaluation('review-article', peerReviewDate, [], evaluationUrl(peerReview))] : [],
-          evaluationSummary: evaluation('evaluation-summary', evaluationSummaryDate, evaluationSummaryParticipants, evaluationUrl(evaluationSummary)),
-          ...(authorResponse && authorResponseDate ? { authorResponse: evaluation('author-response', authorResponseDate, [], evaluationUrl(authorResponse)) } : {}),
-        },
-        ...(peerReview && peerReviewDate ? { reviewedDate: peerReviewDate.toISOString() } : {}),
-        content,
-        ...(authorResponse && authorResponseDate ? { authorResponseDate: authorResponseDate.toISOString() } : {}),
-      },
+        versionedDoi,
+        date,
+        '1',
+        evaluationSummary,
+        evaluationSummaryDate,
+        evaluationSummaryParticipants,
+        peerReview,
+        peerReviewDate,
+        authorResponse,
+        authorResponseDate
+      ),
     ],
   };
 };
 
 const prepareManuscript = async (
   id: string,
-  date: Date,
+  date: Date[],
   evaluationSummary: string,
   evaluationSummaryParticipants: string[],
   peerReview?: string,
   authorResponse?: string
 ) => {
-  const { preprint, date: evaluationSummaryDate } = await hypothesis(evaluationSummary);
-  const { date: peerReviewDate } = peerReview ? await hypothesis(peerReview) : { date: null };
-  const { date: authorResponseDate } = authorResponse ? await hypothesis(authorResponse) : { date: null };
+  const [notRevisedDate] = date;
+  const hypothesisDefault = {
+    preprint: null,
+    date: null,
+  };
+  const { preprint: evaluationSummaryPreprint, date: evaluationSummaryDate } = await hypothesis(evaluationSummary);
+  const { preprint: peerReviewPreprint, date: peerReviewDate } = peerReview ? await hypothesis(peerReview) : hypothesisDefault;
+  const { preprint: authorResponsePreprint, date: authorResponseDate } = authorResponse ? await hypothesis(authorResponse) : hypothesisDefault;
   console.log(JSON.stringify(await prepareManuscriptStructure(
     id,
-    preprint.split('/').slice(-2).join('/'),
-    date,
+    [
+      evaluationSummaryPreprint,
+      peerReviewPreprint,
+      authorResponsePreprint,
+    ].filter((preprint) => preprint !== null),
+    notRevisedDate,
     evaluationSummary,
     evaluationSummaryDate,
     evaluationSummaryParticipants,
@@ -143,7 +183,7 @@ const prepareManuscript = async (
 
 prepareManuscript(
   id,
-  new Date(date),
+  date.split(',').map((d) => new Date(d)),
   evaluationSummary,
   (evaluationSummaryParticipants ?? 'anonymous').split(','),
   peerReview,
