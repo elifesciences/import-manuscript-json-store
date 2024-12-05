@@ -12,8 +12,7 @@ const [
   evaluationSummaryParticipants,
 ] = process.argv.slice(2);
 
-const bioxriv = async (versionedDoi: string) => {
-  return axios.get<{
+const bioxriv = async (versionedDoi: string) => axios.get<{
     results?: {
       filedate: string,
       tdm_path: string,
@@ -24,10 +23,8 @@ const bioxriv = async (versionedDoi: string) => {
       content,
       date: new Date(date),
     })));
-};
 
-const hypothesis = async (id: string) => {
-  return axios.get<{
+const hypothesis = async (id: string) => axios.get<{
     created: string,
     uri: string,
   }>(`https://api.hypothes.is/api/annotations/${id}`)
@@ -35,7 +32,6 @@ const hypothesis = async (id: string) => {
       preprint: response.data.uri.split('/').slice(-2).join('/'),
       date: new Date(response.data.created),
     }));
-};
 
 const gatherPreprints = (preprints: string[], dates: Date[], specificPreprints: string[]) => {
   // Use a Set to remove duplicates
