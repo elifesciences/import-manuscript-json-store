@@ -36,6 +36,36 @@ const hypothesis = async (id: string) => {
     }));
 };
 
+const gatherPreprints = (preprints: (string | null)[], dates: Date[]) => {
+  // Use a Set to remove duplicates
+  const uniquePreprints = Array.from(new Set(preprints.filter((p) => p !== null)));
+
+  // Sort the preprints based on the numeric part
+  uniquePreprints.sort((a, b) => {
+    const matchA = a.match(/.+v([0-9]+)$/);
+    const matchB = b.match(/.+v([0-9]+)$/);
+
+    if (!matchA || !matchB) {
+      throw new Error('Invalid preprint format');
+    }
+
+    const versionA = parseInt(matchA[1], 10);
+    const versionB = parseInt(matchB[1], 10);
+
+    return versionA - versionB;
+  });
+
+  return uniquePreprints.map((versionedDoi, i) => {
+    const [doi, versionIdentifier] = versionedDoi.split('v');
+    return {
+      versionedDoi,
+      doi,
+      versionIdentifier,
+      date: (dates.length > i) ? dates[i] : dates[dates.length - 1],
+    };
+  });
+};
+
 const formatDate = (date: Date) => date.toISOString();
 const evaluationUrl = (id: string) => `https://sciety.org/evaluations/hypothesis:${id}/content`;
 
@@ -57,7 +87,7 @@ if (!evaluationSummary) {
 const prepareManuscriptStructure = async (
   id: string,
   versionedDois: string[],
-  date: Date,
+  dates: Date[],
   evaluationSummary: string,
   evaluationSummaryDate: Date,
   evaluationSummaryParticipants: string[],
@@ -66,8 +96,8 @@ const prepareManuscriptStructure = async (
   authorResponse?: string,
   authorResponseDate?: Date
 )=> {
-  const [versionedDoi] = versionedDois; 
-  const [doi] = versionedDoi.split('v');
+  const preprints = gatherPreprints(versionedDois, dates);
+  const [preprintNotRevised] = preprints;
 
   const evaluation = (reviewType: string, date: Date, participants: string[], contentUrl: string) => ({
     reviewType,
@@ -126,14 +156,14 @@ const prepareManuscriptStructure = async (
   return {
     id,
     manuscript: {
-      doi,
-      publishedDate: formatDate(date),
+      doi: preprintNotRevised.doi,
+      publishedDate: formatDate(preprintNotRevised.date),
     },
     versions: [
       await version(
         id,
-        versionedDoi,
-        date,
+        preprintNotRevised.versionedDoi,
+        preprintNotRevised.date,
         '1',
         evaluationSummary,
         evaluationSummaryDate,
@@ -149,13 +179,12 @@ const prepareManuscriptStructure = async (
 
 const prepareManuscript = async (
   id: string,
-  date: Date[],
+  dates: Date[],
   evaluationSummary: string,
   evaluationSummaryParticipants: string[],
   peerReview?: string,
   authorResponse?: string
 ) => {
-  const [notRevisedDate] = date;
   const hypothesisDefault = {
     preprint: null,
     date: null,
@@ -170,7 +199,7 @@ const prepareManuscript = async (
       peerReviewPreprint,
       authorResponsePreprint,
     ].filter((preprint) => preprint !== null),
-    notRevisedDate,
+    dates,
     evaluationSummary,
     evaluationSummaryDate,
     evaluationSummaryParticipants,

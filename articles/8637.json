@@ -13,12 +13,12 @@
       "preprint": {
         "id": "10.1101/2022.08.08.502889",
         "doi": "10.1101/2022.08.08.502889",
-        "publishedDate": "2023-06-03T00:00:00.000Z",
-        "versionIdentifier": "5",
+        "publishedDate": "2022-09-06T00:00:00.000Z",
+        "versionIdentifier": "3",
         "content": [
-          "s3://biorxiv-src-daily/Current_Content/June_2023/03_Jun_23_Batch_1631/bd15b9c2-7140-1014-954f-ae226efdd132.meca"
+          "s3://biorxiv-src-daily/Current_Content/September_2022/06_Sep_22_Batch_1366/f5e83092-6f49-1014-9067-87a65ac8aacb.meca"
         ],
-        "url": "https://www.biorxiv.org/content/10.1101/2022.08.08.502889v5"
+        "url": "https://www.biorxiv.org/content/10.1101/2022.08.08.502889v3"
       },
       "license": "http://creativecommons.org/licenses/by/4.0/",
       "peerReview": {
@@ -56,7 +56,7 @@
       },
       "reviewedDate": "2023-06-13T17:12:38.411Z",
       "content": [
-        "s3://biorxiv-src-daily/Current_Content/June_2023/03_Jun_23_Batch_1631/bd15b9c2-7140-1014-954f-ae226efdd132.meca"
+        "s3://biorxiv-src-daily/Current_Content/September_2022/06_Sep_22_Batch_1366/f5e83092-6f49-1014-9067-87a65ac8aacb.meca"
       ],
       "authorResponseDate": "2023-06-16T09:26:06.111Z"
     }
