@@ -59,6 +59,61 @@
         "s3://biorxiv-src-daily/Current_Content/July_2022/01_Jul_22_Batch_1299/8b7c3bcf-6ccd-1014-ba8f-ca6fabf515b3.meca"
       ],
       "authorResponseDate": "2022-11-29T18:46:40.994Z"
+    },
+    {
+      "id": "4759",
+      "doi": "10.1101/2022.06.30.498345",
+      "publishedDate": "2022-12-23T00:00:00.000Z",
+      "versionIdentifier": "2",
+      "preprint": {
+        "id": "10.1101/2022.06.30.498345",
+        "doi": "10.1101/2022.06.30.498345",
+        "publishedDate": "2022-11-30T00:00:00.000Z",
+        "versionIdentifier": "2",
+        "content": [
+          "s3://biorxiv-src-daily/Current_Content/November_2022/30_Nov_22_Batch_1451/bb19dc45-6e3b-1014-afff-b54db0a2958d.meca"
+        ],
+        "url": "https://www.biorxiv.org/content/10.1101/2022.06.30.498345v2"
+      },
+      "license": "http://creativecommons.org/licenses/by/4.0/",
+      "peerReview": {
+        "reviews": [
+          {
+            "reviewType": "review-article",
+            "date": "2022-09-27T07:22:43.513Z",
+            "participants": [],
+            "contentUrls": [
+              "https://sciety.org/evaluations/hypothesis:LXiX7D41Ee2k99cjc162Cw/content"
+            ]
+          }
+        ],
+        "evaluationSummary": {
+          "reviewType": "evaluation-summary",
+          "date": "2022-12-23T20:21:41.797Z",
+          "participants": [
+            {
+              "name": "anonymous",
+              "role": "curator"
+            }
+          ],
+          "contentUrls": [
+            "https://sciety.org/evaluations/hypothesis:aaxc-IL_Ee2va-MlDsylZg/content"
+          ]
+        },
+        "authorResponse": {
+          "reviewType": "author-response",
+          "date": "2022-11-29T18:46:40.994Z",
+          "participants": [],
+          "contentUrls": [
+            "https://sciety.org/evaluations/hypothesis:Ke97RnAWEe2uI59T-Z5r8A/content"
+          ]
+        }
+      },
+      "reviewedDate": "2022-09-27T07:22:43.513Z",
+      "content": [
+        "s3://biorxiv-src-daily/Current_Content/November_2022/30_Nov_22_Batch_1451/bb19dc45-6e3b-1014-afff-b54db0a2958d.meca"
+      ],
+      "authorResponseDate": "2022-11-29T18:46:40.994Z"
     }
   ]
 }

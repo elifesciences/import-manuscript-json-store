@@ -59,6 +59,61 @@
         "s3://biorxiv-src-daily/Current_Content/September_2022/06_Sep_22_Batch_1366/7f0a18d5-6f1d-1014-87ac-c6abd558fd99.meca"
       ],
       "authorResponseDate": "2023-08-22T14:35:37.853Z"
+    },
+    {
+      "id": "4923",
+      "doi": "10.1101/2022.09.03.506477",
+      "publishedDate": "2023-08-22T00:00:00.000Z",
+      "versionIdentifier": "2",
+      "preprint": {
+        "id": "10.1101/2022.09.03.506477",
+        "doi": "10.1101/2022.09.03.506477",
+        "publishedDate": "2023-03-28T00:00:00.000Z",
+        "versionIdentifier": "2",
+        "content": [
+          "s3://biorxiv-src-daily/Current_Content/March_2023/28_Mar_23_Batch_1564/cef989e3-6d0e-1014-a542-a726a7e2c851.meca"
+        ],
+        "url": "https://www.biorxiv.org/content/10.1101/2022.09.03.506477v2"
+      },
+      "license": "http://creativecommons.org/licenses/by/4.0/",
+      "peerReview": {
+        "reviews": [
+          {
+            "reviewType": "review-article",
+            "date": "2022-11-08T20:12:32.524Z",
+            "participants": [],
+            "contentUrls": [
+              "https://sciety.org/evaluations/hypothesis:rbtljF-hEe2o9H-iTJYigg/content"
+            ]
+          }
+        ],
+        "evaluationSummary": {
+          "reviewType": "evaluation-summary",
+          "date": "2023-08-22T14:45:27.621Z",
+          "participants": [
+            {
+              "name": "anonymous",
+              "role": "curator"
+            }
+          ],
+          "contentUrls": [
+            "https://sciety.org/evaluations/hypothesis:iOaKTkD6Ee6QZP-uXndKmA/content"
+          ]
+        },
+        "authorResponse": {
+          "reviewType": "author-response",
+          "date": "2023-08-22T14:35:37.853Z",
+          "participants": [],
+          "contentUrls": [
+            "https://sciety.org/evaluations/hypothesis:KXAqqED5Ee6Eyf8VOlvQKg/content"
+          ]
+        }
+      },
+      "reviewedDate": "2022-11-08T20:12:32.524Z",
+      "content": [
+        "s3://biorxiv-src-daily/Current_Content/March_2023/28_Mar_23_Batch_1564/cef989e3-6d0e-1014-a542-a726a7e2c851.meca"
+      ],
+      "authorResponseDate": "2023-08-22T14:35:37.853Z"
     }
   ]
 }

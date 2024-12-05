@@ -59,6 +59,61 @@
         "s3://biorxiv-src-daily/Current_Content/August_2023/13_Aug_23_Batch_1702/dbc48556-6d89-1014-a327-c9889e596c4c.meca"
       ],
       "authorResponseDate": "2024-02-22T19:28:41.225Z"
+    },
+    {
+      "id": "9585",
+      "doi": "10.1101/2023.08.11.553029",
+      "publishedDate": "2024-02-22T00:00:00.000Z",
+      "versionIdentifier": "2",
+      "preprint": {
+        "id": "10.1101/2023.08.11.553029",
+        "doi": "10.1101/2023.08.11.553029",
+        "publishedDate": "2024-01-31T00:00:00.000Z",
+        "versionIdentifier": "2",
+        "content": [
+          "s3://biorxiv-src-daily/Current_Content/January_2024/31_Jan_24_Batch_1873/be8a71fe-6fc8-1014-bf08-82d4f1ff3521.meca"
+        ],
+        "url": "https://www.biorxiv.org/content/10.1101/2023.08.11.553029v2"
+      },
+      "license": "http://creativecommons.org/licenses/by/4.0/",
+      "peerReview": {
+        "reviews": [
+          {
+            "reviewType": "review-article",
+            "date": "2024-02-22T19:20:51.765Z",
+            "participants": [],
+            "contentUrls": [
+              "https://sciety.org/evaluations/hypothesis:fhEgpNG3Ee6qLwt4m0uMEQ/content"
+            ]
+          }
+        ],
+        "evaluationSummary": {
+          "reviewType": "evaluation-summary",
+          "date": "2024-02-22T20:19:45.636Z",
+          "participants": [
+            {
+              "name": "anonymous",
+              "role": "curator"
+            }
+          ],
+          "contentUrls": [
+            "https://sciety.org/evaluations/hypothesis:uHoMEtG_Ee6FUI_6R2tt9Q/content"
+          ]
+        },
+        "authorResponse": {
+          "reviewType": "author-response",
+          "date": "2024-02-22T19:28:41.225Z",
+          "participants": [],
+          "contentUrls": [
+            "https://sciety.org/evaluations/hypothesis:lfWvGNG4Ee6yyR9CSKHvwg/content"
+          ]
+        }
+      },
+      "reviewedDate": "2024-02-22T19:20:51.765Z",
+      "content": [
+        "s3://biorxiv-src-daily/Current_Content/January_2024/31_Jan_24_Batch_1873/be8a71fe-6fc8-1014-bf08-82d4f1ff3521.meca"
+      ],
+      "authorResponseDate": "2024-02-22T19:28:41.225Z"
     }
   ]
 }
