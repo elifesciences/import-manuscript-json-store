@@ -155,9 +155,9 @@ const prepareManuscriptStructure = async (
         evaluationSummary: evaluation('evaluation-summary', evaluationSummaryDate, evaluationSummaryParticipants, evaluationUrl(evaluationSummary)),
         ...(authorResponse && authorResponseDate ? { authorResponse: evaluation('author-response', authorResponseDate, [], evaluationUrl(authorResponse)) } : {}),
       },
-      ...(peerReview && peerReviewDate ? { reviewedDate: peerReviewDate.toISOString() } : {}),
+      ...(peerReview && peerReviewDate ? { reviewedDate: formatDate(peerReviewDate) } : {}),
       content,
-      ...(authorResponse && authorResponseDate ? { authorResponseDate: authorResponseDate.toISOString() } : {}),
+      ...(authorResponse && authorResponseDate ? { authorResponseDate: formatDate(authorResponseDate) } : {}),
     };
   };
 
